@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace WebApp.Models
 {
@@ -16,24 +19,9 @@ namespace WebApp.Models
 
         public List<Aluno> ListaAlunos()
         {
-            List<Aluno> alunos = new List<Aluno>();
-
-            alunos.Add(new Aluno(){ 
-                Id = 2,
-                Nome = "Marta",
-                SobreNome = "Will",
-                Telefone = "1195838756",
-                Ra = 0001                
-            });
-
-            alunos.Add(new Aluno()
-            {
-                Id = 1,
-                Nome = "João",
-                SobreNome = "Santos",
-                Telefone = "114662201",
-                Ra = 0002
-            });
+            var caminhoArquivo = HostingEnvironment.MapPath(@"~/App_Data/Base.json");
+            var json = File.ReadAllText(caminhoArquivo);
+            var alunos = JsonConvert.DeserializeObject<List<Aluno>>(json);
 
             return alunos;
         }

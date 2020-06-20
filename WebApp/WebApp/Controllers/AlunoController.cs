@@ -24,8 +24,12 @@ namespace WebApp.Controllers
         }
 
         // POST: api/Aluno
-        public void Post([FromBody]string value)
+        public List<Aluno> Post(Aluno aluno)
         {
+            List<Aluno> alunos = new List<Aluno>();
+            alunos.Add(aluno);
+
+            return alunos;
         }
 
         // PUT: api/Aluno/5
