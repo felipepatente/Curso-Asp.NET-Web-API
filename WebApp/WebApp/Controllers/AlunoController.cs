@@ -4,21 +4,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
     public class AlunoController : ApiController
     {
         // GET: api/Aluno
-        public IEnumerable<string> Get()
+        public IEnumerable<Aluno> Get()
         {
-            return new string[] { "Felipe", "Patente" };
+            Aluno alunos = new Aluno();
+            return alunos.ListaAlunos();
         }
 
         // GET: api/Aluno/5
         public string Get(int id)
         {
-            return "value";
+            return "";
         }
 
         // POST: api/Aluno
