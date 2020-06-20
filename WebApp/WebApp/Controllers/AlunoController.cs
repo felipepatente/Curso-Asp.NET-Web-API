@@ -30,13 +30,18 @@ namespace WebApp.Controllers
         }
 
         // PUT: api/Aluno/5
-        public void Put(int id, [FromBody]string value)
+        public Aluno Put(int id, [FromBody]Aluno aluno)
         {
+            Aluno _aluno = new Aluno();
+
+            return _aluno.Atualizar(id, aluno);
         }
 
         // DELETE: api/Aluno/5
         public void Delete(int id)
         {
+            Aluno _aluno = new Aluno();
+            _aluno.Deletar(id);
         }
     }
 }
