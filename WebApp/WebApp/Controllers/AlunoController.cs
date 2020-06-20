@@ -23,10 +23,10 @@ namespace WebApp.Controllers
         // POST: api/Aluno
         public List<Aluno> Post(Aluno aluno)
         {
-            List<Aluno> alunos = new List<Aluno>();
-            alunos.Add(aluno);
+            Aluno _aluno = new Aluno();
+            _aluno.Inserir(aluno);
 
-            return alunos;
+            return _aluno.ListarAlunos();
         }
 
         // PUT: api/Aluno/5
