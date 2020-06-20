@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using WebApp.Models;
 
@@ -14,13 +11,13 @@ namespace WebApp.Controllers
         public IEnumerable<Aluno> Get()
         {
             Aluno alunos = new Aluno();
-            return alunos.ListaAlunos();
+            return alunos.ListarAlunos();
         }
 
         // GET: api/Aluno/5
         public Aluno Get(int id)
         {
-            return new Aluno().ListaAlunos().Where(x => x.Id == id).SingleOrDefault();
+            return new Aluno().ListarAlunos().Where(x => x.Id == id).SingleOrDefault();
         }
 
         // POST: api/Aluno
