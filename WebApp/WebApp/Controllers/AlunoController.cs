@@ -18,9 +18,9 @@ namespace WebApp.Controllers
         }
 
         // GET: api/Aluno/5
-        public string Get(int id)
+        public Aluno Get(int id)
         {
-            return "";
+            return new Aluno().ListaAlunos().Where(x => x.Id == id).SingleOrDefault();
         }
 
         // POST: api/Aluno
