@@ -65,3 +65,6 @@ C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\ob
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\obj\Debug\WebApp.dll
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\obj\Debug\WebApp.pdb
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\System.Web.Cors.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\System.Web.Http.Cors.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\System.Web.Http.Cors.xml
