@@ -47,7 +47,15 @@
 				ra: _ra				
 			}
 
-			console.log(aluno);
+			var xhr = new XMLHttpRequest();
+
+			xhr.open('GET', 'https://localhost:44309/api/Aluno', true);
+
+			xhr.onload = function () {
+				console.log(this.responseText);
+			}
+
+			xhr.send();
 		}
 	</script>
 </body>
