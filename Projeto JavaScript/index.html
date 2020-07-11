@@ -24,13 +24,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>				
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			
 		</tbody>
 	</table>
 	<script type="text/javascript">
@@ -66,15 +60,23 @@
 
 		CarregaEstudantes();
 
+		function editarEstudante(id){
+			console.log(id);
+		}
+
 		function adicionaLinha(estudante) {
 			var tbody = document.querySelector('table tbody');
 
 			var trow = `<tr>
-							<td>estudante.nome</td>
+							<td>${estudante.Nome}</td>
+							<td>${estudante.Sobrenome}</td>
+							<td>${estudante.Telefone}</td>
+							<td>${estudante.Ra}</td>
+							<td><button onclick='editarEstudante(${estudante.Id})'>Editar</button></td>
 						</tr>
 					   `
 
-			console.log(trow);		  
+			tbody.innerHTML += trow;
 		}
 
 	</script>
