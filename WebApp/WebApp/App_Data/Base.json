@@ -2,36 +2,50 @@
   {
     "Id": 1,
     "Nome": "Marta",
-    "SobreNome": "Will",
+    "Sobrenome": "Will",
     "Telefone": "1195838756",
     "Ra": 1
   },
   {
     "Id": 2,
     "Nome": "João",
-    "SobreNome": "Santos",
+    "Sobrenome": "Santos",
     "Telefone": "114662201",
     "Ra": 2
   },
   {
     "Id": 3,
     "Nome": "Paula",
-    "SobreNome": "Moura",
+    "Sobrenome": "Moura",
     "Telefone": "114662222",
     "Ra": 3
   },
   {
     "Id": 4,
     "Nome": "Ugor",
-    "SobreNome": "Santos",
+    "Sobrenome": "Santos",
     "Telefone": "114662201",
     "Ra": 5
   },
   {
     "Id": 5,
     "Nome": "Eduardo",
-    "SobreNome": "Figueiro",
+    "Sobrenome": "Figueiro",
     "Telefone": "11958803873",
     "Ra": 5
+  },
+  {
+    "Id": 6,
+    "Nome": "Felipe",
+    "Sobrenome": "Patente",
+    "Telefone": "11958803873",
+    "Ra": 1254
+  },
+  {
+    "Id": 7,
+    "Nome": "Vanessa",
+    "Sobrenome": "Patente",
+    "Telefone": "36251478",
+    "Ra": 25
   }
 ]

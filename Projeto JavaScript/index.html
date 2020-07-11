@@ -28,11 +28,14 @@
 		</tbody>
 	</table>
 	<script type="text/javascript">
+
+		var tbody = document.querySelector('table tbody');
+
 		function Cadastrar() {
-			var _nome = document.getElementById('nome').value;
-			var _sobrenome = document.getElementById('sobrenome').value;
-			var _telefone = document.getElementById('telefone').value;
-			var _ra = document.getElementById('ra').value;
+			var _nome = document.querySelector('#nome').value;
+			var _sobrenome = document.querySelector('#sobrenome').value;
+			var _telefone = document.querySelector('#telefone').value;
+			var _ra = document.querySelector('#ra').value;
 
 			var aluno = {
 				nome: _nome,
@@ -40,12 +43,21 @@
 				telefone: _telefone,
 				ra: _ra				
 			}	
+
+			CarregaEstudantes('POST', 0, aluno);
 		}
 
-		function CarregaEstudantes() {
+		function CarregaEstudantes(metodo, id, corpo) {
+
+			tbody.innerHTML = '';
+
 			var xhr = new XMLHttpRequest();
 
-			xhr.open('GET', 'https://localhost:44309/api/Aluno', true);
+			if(id === undefined || id === 0){
+				id = '';
+			}
+
+			xhr.open(metodo, `https://localhost:44309/api/Aluno/${id}`, true);
 
 			xhr.onload = function () {
 				var estudantes = JSON.parse(this.responseText);
@@ -55,18 +67,22 @@
 				}
 			}
 
-			xhr.send();	
+			if(corpo !== undefined){
+				xhr.setRequestHeader('content-type','application/json');	
+				xhr.send(JSON.stringify(corpo));					
+			}else{
+				xhr.send();	
+			}			
 		}
 
-		CarregaEstudantes();
+		CarregaEstudantes('GET');
 
 		function editarEstudante(id){
 			console.log(id);
 		}
 
 		function adicionaLinha(estudante) {
-			var tbody = document.querySelector('table tbody');
-
+			
 			var trow = `<tr>
 							<td>${estudante.Nome}</td>
 							<td>${estudante.Sobrenome}</td>
