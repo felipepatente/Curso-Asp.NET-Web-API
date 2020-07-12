@@ -117,8 +117,8 @@ var tbody = document.querySelector('table tbody');
 							<td>${estudante.Telefone}</td>
 							<td>${estudante.Ra}</td>
 							<td>
-								<button onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
-								<button onclick='excluir(${estudante.Id})'>Deletar</button>
+								<button class="btn btn-info" onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
+								<button class="btn btn-danger"onclick='excluir(${estudante.Id})'>Deletar</button>
 							</td>
 						</tr>
 					   `
