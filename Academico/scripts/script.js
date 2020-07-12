@@ -1,127 +1,131 @@
 var tbody = document.querySelector('table tbody');
-		var aluno = {};
+var aluno = {};
 
-		function Cadastrar() {
-			
-			aluno.Nome = document.querySelector('#nome').value;
-			aluno.Sobrenome = document.querySelector('#sobrenome').value;
-			aluno.Telefone = document.querySelector('#telefone').value;
-			aluno.Ra = document.querySelector('#ra').value;
+function Cadastrar() {
 
-			console.log(aluno);
+	aluno.Nome = document.querySelector('#nome').value;
+	aluno.Sobrenome = document.querySelector('#sobrenome').value;
+	aluno.Telefone = document.querySelector('#telefone').value;
+	aluno.Ra = document.querySelector('#ra').value;
 
-			if(aluno.Id === undefined || aluno.Id === 0){
-				SalvarEstudantes('POST', 0, aluno);
-			}else{
-				SalvarEstudantes('PUT', aluno.Id, aluno);
-			}
+	console.log(aluno);
 
-			CarregaEstudantes();
-		}
+	if(aluno.Id === undefined || aluno.Id === 0){
+		SalvarEstudantes('POST', 0, aluno);
+	}else{
+		SalvarEstudantes('PUT', aluno.Id, aluno);
+	}
 
-		function Cancelar() {
-			
-			var btnSalvar = document.querySelector('#btnSalvar');
-			var btnCancelar = document.querySelector('#btnCancelar');
-			var titulo = document.querySelector('#titulo');
+	CarregaEstudantes();
 
-			document.querySelector('#nome').value = '';
-			document.querySelector('#sobrenome').value = '';
-			document.querySelector('#telefone').value = '';
-			document.querySelector('#ra').value = '';
+	$('#exampleModal').modal('hide');
+}
 
-			aluno = {};
+function Cancelar() {
 
-			btnSalvar.textContent = 'Cadastrar';
-			btnCancelar.textContent = 'Limpar';
+	var btnSalvar = document.querySelector('#btnSalvar');
+	var btnCancelar = document.querySelector('#btnCancelar');
+	var titulo = document.querySelector('#titulo');
 
-			titulo.textContent = 'Cadastrar Aluno';
+	document.querySelector('#nome').value = '';
+	document.querySelector('#sobrenome').value = '';
+	document.querySelector('#telefone').value = '';
+	document.querySelector('#ra').value = '';
 
-		}
+	aluno = {};
 
-		function CarregaEstudantes() {
+	btnSalvar.textContent = 'Cadastrar';
+	btnCancelar.textContent = 'Limpar';
 
-			tbody.innerHTML = '';
+	titulo.textContent = 'Cadastrar Aluno';
 
-			var xhr = new XMLHttpRequest();
+	$('#exampleModal').modal('hide');
 
-			xhr.open(`GET`, `https://localhost:44309/api/Aluno/`, true);
-			
-			xhr.onload = function () {
-				
-				var estudantes = JSON.parse(this.responseText);
+}
 
-				for (var indice in estudantes) {
-					adicionaLinha(estudantes[indice]);
-				}				
-			}
-			
-			xhr.send();				
-		}
+function CarregaEstudantes() {
 
-		function SalvarEstudantes(metodo, id, corpo) {
+	tbody.innerHTML = '';
 
-			var xhr = new XMLHttpRequest();
+	var xhr = new XMLHttpRequest();
 
-			if(id === undefined || id === 0){
-				id = '';
-			}
+	xhr.open(`GET`, `https://localhost:44309/api/Aluno/`, true);
 
-			xhr.open(metodo, `https://localhost:44309/api/Aluno/${id}`, false);
-			
-			xhr.setRequestHeader('content-type','application/json');	
-			xhr.send(JSON.stringify(corpo));											
-		}
+	xhr.onload = function () {
 
-		CarregaEstudantes();
+		var estudantes = JSON.parse(this.responseText);
 
-		function editarEstudante(estudante){
-			
-			var btnSalvar = document.querySelector('#btnSalvar');
-			var btnCancelar = document.querySelector('#btnCancelar');
-			var titulo = document.querySelector('#titulo');
+		for (var indice in estudantes) {
+			adicionaLinha(estudantes[indice]);
+		}				
+	}
 
-			document.querySelector('#nome').value = estudante.Nome;
-			document.querySelector('#sobrenome').value = estudante.Sobrenome;
-			document.querySelector('#telefone').value = estudante.Telefone;
-			document.querySelector('#ra').value = estudante.Ra;
+	xhr.send();				
+}
 
-			btnSalvar.textContent = 'Salvar';
-			btnCancelar.textContent = 'Cancelar';
+function SalvarEstudantes(metodo, id, corpo) {
 
-			titulo.textContent = `Editar Aluno ${estudante.Nome}`;
+	var xhr = new XMLHttpRequest();
 
-			aluno = estudante;
+	if(id === undefined || id === 0){
+		id = '';
+	}
 
-			console.log(aluno);
-		}
+	xhr.open(metodo, `https://localhost:44309/api/Aluno/${id}`, false);
 
-		function excluirEstudante(id){
+	xhr.setRequestHeader('content-type','application/json');	
+	xhr.send(JSON.stringify(corpo));											
+}
 
-			var xhr = new XMLHttpRequest();
-			xhr.open(`DELETE`, `https://localhost:44309/api/Aluno/${id}`, false);
-			xhr.send();			
-		}
+CarregaEstudantes();
 
-		function excluir(id) {
-			
-			excluirEstudante(id)
-			CarregaEstudantes();
-		}
+function editarEstudante(estudante){
 
-		function adicionaLinha(estudante) {
-			
-			var trow = `<tr>
-							<td>${estudante.Nome}</td>
-							<td>${estudante.Sobrenome}</td>
-							<td>${estudante.Telefone}</td>
-							<td>${estudante.Ra}</td>
-							<td>
-								<button class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
-								<button class="btn btn-danger"onclick='excluir(${estudante.Id})'>Deletar</button>
-							</td>
-						</tr>
-					   `
+	var btnSalvar = document.querySelector('#btnSalvar');
+	var btnCancelar = document.querySelector('#btnCancelar');
+	var titulo = document.querySelector('#titulo');
 
-			tbody.innerHTML += trow;
-		}
+	document.querySelector('#nome').value = estudante.Nome;
+	document.querySelector('#sobrenome').value = estudante.Sobrenome;
+	document.querySelector('#telefone').value = estudante.Telefone;
+	document.querySelector('#ra').value = estudante.Ra;
+
+	btnSalvar.textContent = 'Salvar';
+	btnCancelar.textContent = 'Cancelar';
+
+	titulo.textContent = `Editar Aluno ${estudante.Nome}`;
+
+	aluno = estudante;
+
+	console.log(aluno);
+}
+
+function excluirEstudante(id){
+
+	var xhr = new XMLHttpRequest();
+	xhr.open(`DELETE`, `https://localhost:44309/api/Aluno/${id}`, false);
+	xhr.send();			
+}
+
+function excluir(id) {
+
+	excluirEstudante(id)
+	CarregaEstudantes();
+}
+
+function adicionaLinha(estudante) {
+
+	var trow = `<tr>
+	<td>${estudante.Nome}</td>
+	<td>${estudante.Sobrenome}</td>
+	<td>${estudante.Telefone}</td>
+	<td>${estudante.Ra}</td>
+	<td>
+	<button class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
+	<button class="btn btn-danger"onclick='excluir(${estudante.Id})'>Deletar</button>
+	</td>
+	</tr>
+	`
+
+	tbody.innerHTML += trow;
+}
