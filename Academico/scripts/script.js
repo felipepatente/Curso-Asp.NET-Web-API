@@ -120,10 +120,27 @@ function excluirEstudante(id){
 	xhr.send();			
 }
 
-function excluir(id) {
+function excluir(estudante) {
 
-	excluirEstudante(id)
-	CarregaEstudantes();
+	bootbox.confirm({
+		message: `Tem certeza que deseja excluir o estudante ${estudante.Nome}`,
+		buttons: {
+			confirm: {
+				label: 'Sim',
+				className: 'btn-success'
+			},
+			cancel: {
+				label: 'Não',
+				className: 'btn-danger'
+			}
+		},
+		callback: function (result) {			
+			if(result){
+				excluirEstudante(estudante.Id)
+				CarregaEstudantes();	
+			}
+		}
+	});	
 }
 
 function adicionaLinha(estudante) {
@@ -135,7 +152,7 @@ function adicionaLinha(estudante) {
 	<td>${estudante.Ra}</td>
 	<td>
 	<button class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
-	<button class="btn btn-danger"onclick='excluir(${estudante.Id})'>Deletar</button>
+	<button class="btn btn-danger"onclick='excluir(${JSON.stringify(estudante)})'>Deletar</button>
 	</td>
 	</tr>
 	`
