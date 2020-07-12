@@ -117,7 +117,7 @@ var tbody = document.querySelector('table tbody');
 							<td>${estudante.Telefone}</td>
 							<td>${estudante.Ra}</td>
 							<td>
-								<button class="btn btn-info" onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
+								<button class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick='editarEstudante(${JSON.stringify(estudante)})'>Editar</button>
 								<button class="btn btn-danger"onclick='excluir(${estudante.Id})'>Deletar</button>
 							</td>
 						</tr>
