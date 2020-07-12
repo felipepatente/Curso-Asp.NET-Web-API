@@ -21,10 +21,9 @@ function Cadastrar() {
 	$('#exampleModal').modal('hide');
 }
 
-function Cancelar() {
+function NovoAluno() {
 
-	var btnSalvar = document.querySelector('#btnSalvar');
-	var btnCancelar = document.querySelector('#btnCancelar');
+	var btnSalvar = document.querySelector('#btnSalvar');	
 	var titulo = document.querySelector('#titulo');
 
 	document.querySelector('#nome').value = '';
@@ -34,9 +33,25 @@ function Cancelar() {
 
 	aluno = {};
 
-	btnSalvar.textContent = 'Cadastrar';
-	btnCancelar.textContent = 'Limpar';
+	btnSalvar.textContent = 'Cadastrar';	
+	titulo.textContent = 'Cadastrar Aluno';
 
+	$('#exampleModal').modal('show');
+}
+
+function Cancelar() {
+
+	var btnSalvar = document.querySelector('#btnSalvar');	
+	var titulo = document.querySelector('#titulo');
+
+	document.querySelector('#nome').value = '';
+	document.querySelector('#sobrenome').value = '';
+	document.querySelector('#telefone').value = '';
+	document.querySelector('#ra').value = '';
+
+	aluno = {};
+
+	btnSalvar.textContent = 'Cadastrar';	
 	titulo.textContent = 'Cadastrar Aluno';
 
 	$('#exampleModal').modal('hide');
@@ -81,8 +96,7 @@ CarregaEstudantes();
 
 function editarEstudante(estudante){
 
-	var btnSalvar = document.querySelector('#btnSalvar');
-	var btnCancelar = document.querySelector('#btnCancelar');
+	var btnSalvar = document.querySelector('#btnSalvar');	
 	var titulo = document.querySelector('#titulo');
 
 	document.querySelector('#nome').value = estudante.Nome;
@@ -91,8 +105,7 @@ function editarEstudante(estudante){
 	document.querySelector('#ra').value = estudante.Ra;
 
 	btnSalvar.textContent = 'Salvar';
-	btnCancelar.textContent = 'Cancelar';
-
+	
 	titulo.textContent = `Editar Aluno ${estudante.Nome}`;
 
 	aluno = estudante;
