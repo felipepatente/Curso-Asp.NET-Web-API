@@ -22,44 +22,16 @@ namespace WebApp.Models
 
         public List<Aluno> ListarAlunos()
         {
-            var caminhoArquivo = HostingEnvironment.MapPath(@"~/App_Data/Base.json");
-            var json = File.ReadAllText(caminhoArquivo);
-            var alunos = JsonConvert.DeserializeObject<List<Aluno>>(json);
-
-            return alunos;
-        }
-
-        public List<Aluno> ListarAlunosDB()
-        {
-            //string stringConexao = ConfigurationManager.AppSettings["ConnectionString"];
-            string stringConexao = ConfigurationManager.ConnectionStrings["ConexaoDev"].ConnectionString;
-            IDbConnection conexao;
-
-            conexao = new SqlConnection(stringConexao);
-            conexao.Open();
-
-            var listaAlunos = new List<Aluno>();
-
-            IDbCommand selectCmd = conexao.CreateCommand();
-            selectCmd.CommandText = "SELECT * FROM Alunos";
-
-            IDataReader resultado = selectCmd.ExecuteReader();
-            while (resultado.Read())
+            try
             {
-                var alu = new Aluno();
-
-                alu.Id = Convert.ToInt32(resultado["Id"]);
-                alu.Nome = Convert.ToString(resultado["Nome"]);
-                alu.Sobrenome = Convert.ToString(resultado["Sobrenome"]);
-                alu.Telefone = Convert.ToString(resultado["Telefone"]);
-                alu.Ra = Convert.ToInt32(resultado["Id"]);
-                
-                listaAlunos.Add(alu);
+                var alunoDB = new AlunoDAO();
+                return alunoDB.ListarAlunosDB();
             }
+            catch (Exception ex)
+            {
 
-            conexao.Close();
-
-            return listaAlunos;
+                throw new Exception($"Erro ao listar Alunos: Erro => {ex.Message}");
+            }
         }
 
         public bool ReescreverArquivo(List<Aluno> alunos)
