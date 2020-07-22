@@ -20,12 +20,12 @@ namespace WebApp.Models
         public int Ra { get; set; }
 
 
-        public List<Aluno> ListarAlunos()
+        public List<Aluno> ListarAlunos(int? id = null)
         {
             try
             {
                 var alunoDB = new AlunoDAO();
-                return alunoDB.ListarAlunosDB();
+                return alunoDB.ListarAlunosDB(id);
             }
             catch (Exception ex)
             {

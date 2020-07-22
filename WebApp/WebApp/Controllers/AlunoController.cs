@@ -30,10 +30,10 @@ namespace WebApp.Controllers
 
         // GET: api/Aluno/5
         [HttpGet]
-        [Route("Recuperar/{id:int}/{nome}/{sobrenome=Patente}")]
+        [Route("Recuperar/{id:int}/{nome?}/{sobrenome?}")]
         public Aluno Get(int id, string nome, string sobrenome)
         {
-            return new Aluno().ListarAlunos().Where(x => x.Id == id).SingleOrDefault();
+            return new Aluno().ListarAlunos(id).FirstOrDefault();
         }
 
         [HttpGet]
