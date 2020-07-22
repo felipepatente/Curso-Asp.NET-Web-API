@@ -64,7 +64,7 @@ function CarregaEstudantes() {
 
 	var xhr = new XMLHttpRequest();
 	
-	xhr.open(`GET`, `https://localhost:44309/api/Aluno/`, true);
+	xhr.open(`GET`, `https://localhost:44309/api/Aluno/Recuperar`, true);
 	
 	xhr.onerror = function () {
 		console.log('ERRO', xhr.readyState);

@@ -7,10 +7,13 @@ using WebApp.Models;
 namespace WebApp.Controllers
 {
     [EnableCors("*","*","*")]
+    [RoutePrefix("api/Aluno")]
     public class AlunoController : ApiController
     {
         // GET: api/Aluno
-        public IHttpActionResult Get()
+        [HttpGet]
+        [Route("Recuperar")]
+        public IHttpActionResult Recuperar()
         {
             try
             {
@@ -26,9 +29,34 @@ namespace WebApp.Controllers
         }
 
         // GET: api/Aluno/5
-        public Aluno Get(int id)
+        [HttpGet]
+        [Route("Recuperar/{id:int}/{nome}/{sobrenome=Patente}")]
+        public Aluno Get(int id, string nome, string sobrenome)
         {
             return new Aluno().ListarAlunos().Where(x => x.Id == id).SingleOrDefault();
+        }
+
+        [HttpGet]
+        [Route(@"RecuperarPorDataNome/{data:regex([0-9]{4}\-[0-9]{2})}/{nome:minlength(4)}")]
+        public IHttpActionResult Recuperar(string data, string nome)
+        {
+            try
+            {
+                Aluno aluno = new Aluno();
+
+                IEnumerable<Aluno> alunos = aluno.ListarAlunos().Where(x => x.data == data || x.Nome == nome);
+
+                if (!alunos.Any())
+                    return NotFound();
+
+                return Ok(alunos);
+                
+            }
+            catch (System.Exception ex)
+            {
+
+                return InternalServerError(ex);
+            }            
         }
 
         // POST: api/Aluno
