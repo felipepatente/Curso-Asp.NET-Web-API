@@ -102,7 +102,7 @@ namespace WebApp.Models
             {
 
                 throw new Exception($"Erro ao deletar Aluno: Erro => {ex.Message}");
-            }
+            }            
         }
     }
 }
