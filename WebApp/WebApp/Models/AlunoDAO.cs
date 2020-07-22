@@ -34,7 +34,7 @@ namespace WebApp.Models
                 alu.Nome = Convert.ToString(resultado["Nome"]);
                 alu.Sobrenome = Convert.ToString(resultado["Sobrenome"]);
                 alu.Telefone = Convert.ToString(resultado["Telefone"]);
-                alu.Ra = Convert.ToInt32(resultado["Id"]);
+                alu.Ra = Convert.ToInt32(resultado["Ra"]);
 
                 listaAlunos.Add(alu);
             }
@@ -62,6 +62,29 @@ namespace WebApp.Models
             insertCmd.Parameters.Add(paramRa);
 
             insertCmd.ExecuteNonQuery();
+        }
+
+        internal void AtualizarAlunoDB(Aluno aluno)
+        {
+            IDbCommand updateCmd = conexao.CreateCommand();
+            updateCmd.CommandText = "UPDATE Alunos SET Nome = @Nome, Sobrenome = @Sobrenome, Telefone = @Telefone, Ra = @Ra WHERE Id = @Id";
+
+            IDbDataParameter paramNome = new SqlParameter("Nome", aluno.Nome);
+            updateCmd.Parameters.Add(paramNome);
+
+            IDbDataParameter paramSobrenome = new SqlParameter("Sobrenome", aluno.Sobrenome);
+            updateCmd.Parameters.Add(paramSobrenome);
+
+            IDbDataParameter paramTelefone = new SqlParameter("Telefone", aluno.Telefone);
+            updateCmd.Parameters.Add(paramTelefone);
+
+            IDbDataParameter paramRa = new SqlParameter("Ra", aluno.Ra);
+            updateCmd.Parameters.Add(paramRa);
+
+            IDbDataParameter paramId = new SqlParameter("Id", aluno.Id);
+            updateCmd.Parameters.Add(paramId);
+
+            updateCmd.ExecuteNonQuery();
         }
     }
 }

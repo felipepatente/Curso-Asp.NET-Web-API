@@ -57,6 +57,20 @@ namespace WebApp.Models
             }
         }
 
+        public void Atualizar(Aluno aluno)
+        {
+            try
+            {
+                var alunoDB = new AlunoDAO();
+                alunoDB.AtualizarAlunoDB(aluno);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception($"Erro ao atualiar Aluno: Erro => {ex.Message}");
+            }
+        }
+
         public Aluno Atualizar(int id, Aluno aluno)
         {
             var alunos = ListarAlunos();

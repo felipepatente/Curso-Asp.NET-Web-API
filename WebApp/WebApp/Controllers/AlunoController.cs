@@ -72,8 +72,11 @@ namespace WebApp.Controllers
         public Aluno Put(int id, [FromBody]Aluno aluno)
         {
             Aluno _aluno = new Aluno();
+            aluno.Id = id;
 
-            return _aluno.Atualizar(id, aluno);
+            _aluno.Atualizar(aluno);
+
+            return _aluno.ListarAlunos().FirstOrDefault(alu => alu.Id == id);
         }
 
         // DELETE: api/Aluno/5
