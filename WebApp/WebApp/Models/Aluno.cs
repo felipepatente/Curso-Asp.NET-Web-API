@@ -43,16 +43,18 @@ namespace WebApp.Models
             return true;
         }
 
-        public Aluno Inserir(Aluno aluno)
-        {
-            var alunos = ListarAlunos();
-            var maxId = alunos.Max(p => p.Id);
-            aluno.Id = maxId + 1;
-            alunos.Add(aluno);
+        public void Inserir(Aluno aluno)
+        {            
+            try
+            {
+                var alunoDB = new AlunoDAO();
+                alunoDB.InsertAlunoDB(aluno);
+            }
+            catch (Exception ex)
+            {
 
-            ReescreverArquivo(alunos);
-
-            return aluno;
+                throw new Exception($"Erro ao inserir Aluno: Erro => {ex.Message}");
+            }
         }
 
         public Aluno Atualizar(int id, Aluno aluno)
