@@ -63,16 +63,26 @@ function CarregaEstudantes() {
 	tbody.innerHTML = '';
 
 	var xhr = new XMLHttpRequest();
-
+	
 	xhr.open(`GET`, `https://localhost:44309/api/Aluno/`, true);
+	
+	xhr.onerror = function () {
+		console.log('ERRO', xhr.readyState);
+	}
 
-	xhr.onload = function () {
+	xhr.onreadystatechange = function () {
 
-		var estudantes = JSON.parse(this.responseText);
+		if(this.readyState == 4){
 
-		for (var indice in estudantes) {
-			adicionaLinha(estudantes[indice]);
-		}				
+			if(this.status == 200){
+				var estudantes = JSON.parse(this.responseText);			
+				for (var indice in estudantes) {
+					adicionaLinha(estudantes[indice]);
+				}	
+			}else{
+				console.log('');
+			}
+		}
 	}
 
 	xhr.send();				
