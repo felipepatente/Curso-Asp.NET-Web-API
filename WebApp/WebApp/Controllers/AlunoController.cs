@@ -10,10 +10,19 @@ namespace WebApp.Controllers
     public class AlunoController : ApiController
     {
         // GET: api/Aluno
-        public IEnumerable<Aluno> Get()
+        public IHttpActionResult Get()
         {
-            Aluno alunos = new Aluno();
-            return alunos.ListarAlunos();
+            try
+            {
+                Aluno alunos = new Aluno();
+                return  Ok(alunos.ListarAlunos());
+            }
+            catch (System.Exception ex)
+            {
+
+                return InternalServerError(ex);
+            }
+            
         }
 
         // GET: api/Aluno/5

@@ -79,8 +79,10 @@ function CarregaEstudantes() {
 				for (var indice in estudantes) {
 					adicionaLinha(estudantes[indice]);
 				}	
-			}else{
-				console.log('');
+			}else if(this.status == 500){
+				var erro = JSON.parse(this.responseText);	
+				console.log(erro.Message);
+				console.log(erro.ExceptionMessage);
 			}
 		}
 	}

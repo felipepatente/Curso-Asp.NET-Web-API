@@ -19,7 +19,8 @@ namespace WebApp.Models
 
         public List<Aluno> ListarAlunos()
         {
-            var caminhoArquivo = HostingEnvironment.MapPath(@"~/App_Data/Base.json");
+            //var caminhoArquivo = HostingEnvironment.MapPath(@"~/App_Data/Base.json");
+            var caminhoArquivo = HostingEnvironment.MapPath(@"~/App_Data/Bason");
             var json = File.ReadAllText(caminhoArquivo);
             var alunos = JsonConvert.DeserializeObject<List<Aluno>>(json);
 
