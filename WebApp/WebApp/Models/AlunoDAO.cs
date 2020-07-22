@@ -64,7 +64,7 @@ namespace WebApp.Models
             insertCmd.ExecuteNonQuery();
         }
 
-        internal void AtualizarAlunoDB(Aluno aluno)
+        public void AtualizarAlunoDB(Aluno aluno)
         {
             IDbCommand updateCmd = conexao.CreateCommand();
             updateCmd.CommandText = "UPDATE Alunos SET Nome = @Nome, Sobrenome = @Sobrenome, Telefone = @Telefone, Ra = @Ra WHERE Id = @Id";
@@ -85,6 +85,17 @@ namespace WebApp.Models
             updateCmd.Parameters.Add(paramId);
 
             updateCmd.ExecuteNonQuery();
+        }
+
+        public void DeletarAlunoDB(int id)
+        {
+            IDbCommand deleteCmd = conexao.CreateCommand();
+            deleteCmd.CommandText = "DELETE FROM Alunos WHERE Id = @Id";
+
+            IDbDataParameter paramId = new SqlParameter("Id", id);
+            deleteCmd.Parameters.Add(paramId);
+
+            deleteCmd.ExecuteNonQuery();
         }
     }
 }

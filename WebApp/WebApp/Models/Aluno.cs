@@ -91,23 +91,18 @@ namespace WebApp.Models
             return aluno;
         }
 
-        public bool Deletar(int id)
+        public void Deletar(int id)
         {
-            var alunos = ListarAlunos();
-            var itemIndex = alunos.FindIndex(p => p.Id == id);
-
-            if (itemIndex >= 0)
+            try
             {
-                alunos.RemoveAt(itemIndex);
+                var alunoDB = new AlunoDAO();
+                alunoDB.DeletarAlunoDB(id);
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+
+                throw new Exception($"Erro ao deletar Aluno: Erro => {ex.Message}");
             }
-
-            ReescreverArquivo(alunos);
-
-            return true;
         }
     }
 }
