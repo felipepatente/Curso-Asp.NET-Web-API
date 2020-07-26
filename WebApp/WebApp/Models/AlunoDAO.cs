@@ -18,11 +18,11 @@ namespace WebApp.Models
             conexao.Open();
         }
 
-        public List<Aluno> ListarAlunosDB(int? id)
+        public List<AlunoDTO> ListarAlunosDB(int? id)
         {
             try
             {
-                var listaAlunos = new List<Aluno>();
+                var listaAlunos = new List<AlunoDTO>();
                 IDbCommand selectCmd = conexao.CreateCommand();
 
                 if (id == null)
@@ -37,7 +37,7 @@ namespace WebApp.Models
                 IDataReader resultado = selectCmd.ExecuteReader();
                 while (resultado.Read())
                 {
-                    var alu = new Aluno()
+                    var alu = new AlunoDTO()
                     {
                         Id = Convert.ToInt32(resultado["Id"]),
                         Nome = Convert.ToString(resultado["Nome"]),
@@ -61,7 +61,7 @@ namespace WebApp.Models
             }
         }
 
-        public void InsertAlunoDB(Aluno aluno)
+        public void InsertAlunoDB(AlunoDTO aluno)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace WebApp.Models
             }            
         }
 
-        public void AtualizarAlunoDB(Aluno aluno)
+        public void AtualizarAlunoDB(AlunoDTO aluno)
         {
             try
             {

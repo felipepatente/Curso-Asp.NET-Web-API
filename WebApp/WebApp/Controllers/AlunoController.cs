@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -17,7 +18,7 @@ namespace WebApp.Controllers
         {
             try
             {
-                Aluno alunos = new Aluno();
+                AlunoModel alunos = new AlunoModel();
                 return  Ok(alunos.ListarAlunos());
             }
             catch (System.Exception ex)
@@ -28,12 +29,20 @@ namespace WebApp.Controllers
             
         }
 
-        // GET: api/Aluno/5
         [HttpGet]
         [Route("Recuperar/{id:int}/{nome?}/{sobrenome?}")]
-        public Aluno Get(int id, string nome = null, string sobrenome = null)
+        public IHttpActionResult RecuperPorId(int id, string nome = null, string sobrenome = null)
         {
-            return new Aluno().ListarAlunos(id).FirstOrDefault();
+            try
+            {
+                AlunoModel aluno = new AlunoModel();
+
+                return Ok(aluno.ListarAlunos(id).FirstOrDefault());
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }            
         }
 
         [HttpGet]
@@ -42,9 +51,9 @@ namespace WebApp.Controllers
         {
             try
             {
-                Aluno aluno = new Aluno();
+                AlunoModel aluno = new AlunoModel();
 
-                IEnumerable<Aluno> alunos = aluno.ListarAlunos().Where(x => x.data == data || x.Nome == nome);
+                IEnumerable<AlunoDTO> alunos = aluno.ListarAlunos().Where(x => x.data == data || x.Nome == nome);
 
                 if (!alunos.Any())
                     return NotFound();
@@ -60,11 +69,11 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Post(Aluno aluno)
+        public IHttpActionResult Post(AlunoDTO aluno)
         {
             try
             {
-                Aluno _aluno = new Aluno();
+                AlunoModel _aluno = new AlunoModel();
                 _aluno.Inserir(aluno);
 
                 return Ok (_aluno.ListarAlunos());
@@ -77,11 +86,11 @@ namespace WebApp.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Put(int id, [FromBody]Aluno aluno)
+        public IHttpActionResult Put(int id, [FromBody] AlunoDTO aluno)
         {
             try
             {
-                Aluno _aluno = new Aluno();
+                AlunoModel _aluno = new AlunoModel();
                 aluno.Id = id;
 
                 _aluno.Atualizar(aluno);
@@ -99,7 +108,7 @@ namespace WebApp.Controllers
         {
             try
             {
-                Aluno _aluno = new Aluno();
+                AlunoModel _aluno = new AlunoModel();
                 _aluno.Deletar(id);
 
                 return Ok("Deletado com sucesso");
