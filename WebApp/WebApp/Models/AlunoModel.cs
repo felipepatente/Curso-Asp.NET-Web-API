@@ -1,8 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using App.Domain;
+using App.Repository;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Web.Hosting;
 
 namespace WebApp.Models
 {

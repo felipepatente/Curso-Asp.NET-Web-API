@@ -71,3 +71,8 @@ C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bi
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Swashbuckle.Core.dll
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\WebActivatorEx.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\App.Domain.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\App.Repository.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\App.Domain.pdb
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\App.Repository.pdb

@@ -1,0 +1,5 @@
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\App.Domain\bin\Debug\App.Domain.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\App.Domain\bin\Debug\App.Domain.pdb
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\App.Domain\obj\Debug\App.Domain.csproj.CoreCompileInputs.cache
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\App.Domain\obj\Debug\App.Domain.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\App.Domain\obj\Debug\App.Domain.pdb

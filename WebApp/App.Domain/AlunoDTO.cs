@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.Models
+namespace App.Domain
 {
     public class AlunoDTO
     {        
