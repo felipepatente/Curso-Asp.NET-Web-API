@@ -51,26 +51,6 @@ namespace WebApp.Models
             }
         }
 
-        public AlunoDTO Atualizar(int id, AlunoDTO aluno)
-        {
-            var alunos = ListarAlunos();
-            var itemIndex = ListarAlunos().FindIndex(p => p.Id == aluno.Id);
-
-            if (itemIndex >= 0)
-            {
-                aluno.Id = id;
-                alunos[itemIndex] = aluno;
-            }
-            else
-            {
-                return null;
-            }
-
-            ReescreverArquivo(alunos);
-
-            return aluno;
-        }
-
         public void Deletar(int id)
         {
             try
