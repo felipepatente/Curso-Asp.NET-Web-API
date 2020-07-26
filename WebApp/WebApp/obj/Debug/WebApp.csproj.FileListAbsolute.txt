@@ -68,3 +68,7 @@ C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\ob
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\System.Web.Cors.dll
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\System.Web.Http.Cors.dll
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\System.Web.Http.Cors.xml
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\WebApp.xml
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Swashbuckle.Core.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\WebActivatorEx.dll
