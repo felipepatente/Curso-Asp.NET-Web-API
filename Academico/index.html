@@ -25,18 +25,8 @@
 			<li class="active"><a href="#">Aluno</a></li>
 			<li><a href="#about">Disciplina</a></li>-->			
 		  </ul>
-		  <ul class="nav navbar-nav navbar-right">
-			<li><a href="login.html">Entrar</a></li>
-			<!--
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Felipe <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="#">Perfil</a></li>
-				<li><a href="#">Configuração</a></li>				
-				<li role="separator" class="divider"></li>				
-				<li><a href="#">Sair</a></li>
-			  </ul>
-			</li>-->
+		  <ul id="statusLogin" class="nav navbar-nav navbar-right">
+			
 		  </ul>
 		</div>
 	  </div>
@@ -91,6 +81,37 @@
 		</table>
 	</div>
 	<script type="text/javascript" src="scripts/script.js"></script>
+
+	<script type="text/javascript">
+
+		var statusLogin = document.querySelector('#statusLogin');
+		(() => {
+    		
+    		if(sessionStorage.getItem('token') != null){
+    			statusLogin.innerHTML = `<li class="dropdown">
+										  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Felipe <span class="caret"></span></a>
+										  <ul class="dropdown-menu">
+											<li><a href="#">Perfil</a></li>
+											<li><a href="#">Configuração</a></li>				
+											<li role="separator" class="divider"></li>				
+											<li><a href="#" onclick="logout()">Sair</a></li>
+										  </ul>
+										</li>`;
+
+    		}else{
+    			statusLogin.innerHTML = `<li><a href="login.html">Entrar</a></li>`;
+    			window.location.href = "login.html";
+    		}
+    	})()
+
+    	function logout(){
+    		sessionStorage.removeItem('token');    	
+    		window.location.href = "login.html";
+    	}
+
+
+	</script>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>	
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>

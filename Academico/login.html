@@ -26,6 +26,12 @@
     </div>
     <script type="text/javascript">
     	
+    	(() => {
+    		if(sessionStorage.getItem('token') != null){
+    			window.location.href = "index.html";
+    		}
+    	})()
+
     	var login = function () {
 
     		event.preventDefault();
