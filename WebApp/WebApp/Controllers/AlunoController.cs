@@ -10,6 +10,7 @@ namespace WebApp.Controllers
 {
     [EnableCors("*","*","*")]
     [RoutePrefix("api/Aluno")]
+    [Authorize]
     public class AlunoController : ApiController
     {
         // GET: api/Aluno

@@ -85,3 +85,7 @@ C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bi
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Owin.Cors.xml
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\System.Web.Http.Owin.xml
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Owin.Security.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Owin.Security.xml
+C:\Users\felip\OneDrive\Documentos\GitHub\Curso-Asp.NET-Web-API\WebApp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml
