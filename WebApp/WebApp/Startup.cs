@@ -1,6 +1,8 @@
 ﻿using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Owin;
+using Swashbuckle.Application;
+using System;
 using System.Web.Http;
 
 [assembly: OwinStartup(typeof(WebApp.Startup))]
@@ -20,6 +22,11 @@ namespace WebApp
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.EnableSwagger(c => {
+                c.SingleApiVersion("v1", "WebApp");
+                c.IncludeXmlComments(AppDomain.CurrentDomain.BaseDirectory + @"\bin\WebApp.xml");
+            });
 
             app.UseCors(CorsOptions.AllowAll);
 
