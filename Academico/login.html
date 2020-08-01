@@ -37,16 +37,32 @@
     		xhr.open('POST', 'https://localhost:44309/token', true);
 
     		xhr.onload = function () {
-    			var resultado = this.responseText;
-    			console.log(resultado);    			
+    			var resultado = JSON.parse(this.responseText);
+    			console.log(`${resultado.token_type} ${resultado.access_token}`);
+    			verificar(`${resultado.token_type} ${resultado.access_token}`);
     		}
 
     		xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');	
 			xhr.send(`grant_type=password&username=${nome}&password=${password}`);	
     	}
 
-    	var verificar = function () {
+    	var verificar = function (auth) {
     		
+    		var xhr = new XMLHttpRequest();
+	
+			xhr.open(`GET`, `https://localhost:44309/api/Aluno/Recuperar`, true);
+			xhr.setRequestHeader('Authorization', auth);
+			
+			xhr.onerror = function () {
+				console.log('ERRO', xhr.readyState);
+			}
+
+			xhr.onreadystatechange = function () {
+				var result = this.responseText;	
+				document.write(result);
+			}
+
+			xhr.send();	
     	}
 
     </script>
