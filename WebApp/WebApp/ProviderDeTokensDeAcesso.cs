@@ -22,12 +22,18 @@ namespace WebApp
             if (usuario == null)
             {
                 context.SetError("invalid_grant", "Usuário não encontrado ou senha incorreta");
+                return;
             }
-            else
+
+            var identidadeUsuario = new ClaimsIdentity(context.Options.AuthenticationType);
+
+            foreach (var funcao in usuario.Funcoes)
             {
-                var identidadeUsuario = new ClaimsIdentity(context.Options.AuthenticationType);
-                context.Validated(identidadeUsuario);
+                identidadeUsuario.AddClaim(new Claim(ClaimTypes.Role, funcao));
             }
+
+            context.Validated(identidadeUsuario);
+
         }
     }
 }
