@@ -13,7 +13,7 @@ namespace WebApp
 
                 new Usuario { Nome = "Fulano", Senha = "123456", 
                     Funcoes = new string[] { Funcao.Aluno } },
-                new Usuario { Nome = "Beltranho", Senha = "123456",
+                new Usuario { Nome = "Beltrano", Senha = "123456",
                     Funcoes = new string[] { Funcao.Professor } },
                 new Usuario { Nome = "Sicrano", Senha = "123456",
                     Funcoes = new string[] { Funcao.Professor, Funcao.Administrador } }
